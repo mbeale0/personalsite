@@ -1,0 +1,86 @@
+body{
+	background-color: rgba(113, 161, 96, 0.815);
+}
+h1{
+	color: rgb(243, 232, 232);	
+	text-align: center;
+	font-size: 72px;
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+ul{
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow:hidden;
+}
+li{
+	float: left;
+}
+li a{
+	display: block;
+	text-decoration: none;
+	font-weight: bold;
+	color: black;
+	padding: 24px;
+	background-color: rgb(245, 174, 42);
+	font-size: 24px;
+}
+li hr{
+	background-color: rgb(224, 83, 29);
+	border-color: rgb(224, 83, 29);
+	border-bottom: rgb(224, 83, 29);
+	border-top: rgb(224, 83, 29);
+	border-left: rgb(224, 83, 29);
+	border-right: rgb(224, 83, 29);
+}
+p1{
+	display: block;
+	color: black;	
+	text-align: center;
+	font-size: 32px;
+	font-weight: bold;
+}
+p2{
+	display: block;
+	color: black;	
+	text-align: center;
+	font-size: 24px;
+	font-weight: bold;
+}
+
+.mylinks a {
+	text-align: center;
+	color: rgb(165, 16, 46);
+	font-weight: bold;
+    display: inline-block;
+    font-size: 24px;
+	width: 25%;
+	margin-left: 75px;
+	margin-right: 75px;
+}
+
+
+.selfImages p2{
+	width: 31%;
+	margin-right: auto;
+	margin-left: auto;
+	display: inline-block;
+
+}
+
+.aboutsite h1{
+	color: rgp(243, 232, 232);
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+	font-size: 48px;
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+	text-align: center;
+}
+
+.aboutsite p1{
+	margin-left: 10%;
+	margin-right: 10%;
+	text-align: center;
+	font-size: 24px;
+	color: black;
+}
+
