@@ -54,9 +54,8 @@ p2{
 	font-weight: bold;
     display: inline-block;
     font-size: 24px;
-	width: 25%;
-	margin-left: 75px;
-	margin-right: 75px;
+	width: 33%;
+	
 }
 
 
@@ -82,5 +81,13 @@ p2{
 	text-align: center;
 	font-size: 24px;
 	color: black;
+}
+.siteGitHub a{
+	display: block;
+	font-weight: bold;
+	text-align: center;
+	font-size: 24px;
+	color: rgb(165, 16, 46);
+
 }
 
