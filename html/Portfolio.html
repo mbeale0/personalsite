@@ -6,6 +6,22 @@
     </head>
     <body>
         <h1>Portfolio</h1>
+        <p id ="game"><br></p>
+        <input id = "test">
+        <button type="button" onclick="submitButton()">Submit</button>
+        <script>
+            function submitButton(){
+                let x = document.getElementById("test").value;
+                let text;
+                if(x == "hello"){
+                    text = "world"
+                }
+                else{
+                    text = "Wrong!";
+                }
+                document.getElementById("game").innerHTML = text;
+            }
+        </script>
     </body>
 
 </html>
