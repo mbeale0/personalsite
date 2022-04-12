@@ -5,21 +5,74 @@
         <title>Portfolio</title>
     </head>
     <body>
+        
         <h1>Portfolio</h1>
-        <p id ="game"><br></p>
-        <input id = "test">
-        <button type="button" onclick="submitButton()">Submit</button>
+        <hr>
+            <p1>
+                <div id = "options">
+                    Options: <br>
+                    &emsp;q - Quit<br>
+                    &emsp;mc - Move to col<br>
+                    &emsp;mt - Move to top<br>
+                    &emsp;d - Draw from pile<br>
+                    &emsp;mdc - Move draw to col<br>
+                    &emsp;mdt - Move draw to top<br>
+                    &emsp;o - Print options
+                </div>
+
+                <span style="margin-right: 10px;">
+                <div id="GameInput">
+                    <p id="game"><br><br><br><br></p>
+                    <input id="submit">
+                    <button id="submitbutton" type="button" onclick="takeTurn()">Submit</button>
+                </div></span>
+        <hr>
+
+        
+        <script src = "../JS/GameDisplay.js"> </script>
         <script>
-            function submitButton(){
-                let x = document.getElementById("test").value;
-                let text;
-                if(x == "hello"){
-                    text = "world"
+            let gameButton = document.getElementById("submit").value;
+            function takeTurn() {
+                let userinput = document.getElementById("submit").value;
+                document.getElementById("submit").value = "";
+                switch(userinput){
+                    case "mc":
+                        moveToCol();
+                        break;
+                    case "mt":
+                        moveToTop();
+                        break;
+                    case "d":
+                        useDrawPile();
+                        break;
+                    case "mdc":
+                        moveDrawToCol();
+                        break;
+                    case "mdt":
+                        moveDrawToTop()
+                        break;
+                    default:
+                        //TODO: alter this so it still shows the game screen so the user knows theyre move
+                        document.getElementById("game").innerHTML = "Please enter a valid command";
                 }
-                else{
-                    text = "Wrong!";
-                }
-                document.getElementById("game").innerHTML = text;
+            }       
+            function moveToCol() {
+                document.getElementById("game").innerHTML = "Moving to Col"
+            }
+            function moveToTop() {
+
+            }
+            function useDrawPile() {
+
+            }
+            function moveDrawToCol() {
+
+            }
+            function moveDrawToTop() {
+
+            }
+            function playAgain() {
+
             }
         </script>
     </body>

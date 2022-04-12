@@ -8,3 +8,22 @@ h1{
 	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 
 }
+
+#GameInput{
+	text-align: center;
+	font-size: 22px;
+	font-weight: bold;
+
+}
+#submit {
+	font-size: 22px;
+	font-weight: bold;
+}
+#submitbutton{
+	font-size: 22px;
+	font-weight: bold;
+}
+#options{
+	margin-left: 5%;
+	font-size: 20px;
+}
