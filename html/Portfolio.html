@@ -21,8 +21,20 @@
                 </div>
 
                 <span style="margin-right: 10px;">
-                <div id="GameInput">
-                    <p id="game"><br><br><br><br></p>
+                <div id="Solitaire">
+                    <pre id="RowOne"     >0 0 0 0           |O|</pre>
+                    <pre id="RowTwo"     >X  X  X  X  X  X  X</pre>
+                    <pre id="RowThree"   >   X  X  X  X  X  X</pre>
+                    <pre id="RowFour"    >      X  X  X  X  X</pre>
+                    <pre id="RowFive"    >         X  X  X  X</pre>
+                    <pre id="RowSix"     >            X  X  X</pre>
+                    <pre id="RowSeven"   >               X  X</pre>
+                    <pre id="RowEight"   >                  X</pre>
+                    <pre id="RowTen"     >                   </pre>
+                    <pre id="RowEleven"  >                   </pre>
+                    <pre id="RowTwelve"  >                   </pre>
+
+                    <p id = "info"></p>
                     <input id="submit">
                     <button id="submitbutton" type="button" onclick="takeTurn()">Submit</button>
                 </div></span>
@@ -53,11 +65,11 @@
                         break;
                     default:
                         //TODO: alter this so it still shows the game screen so the user knows theyre move
-                        document.getElementById("game").innerHTML = "Please enter a valid command";
+                        document.getElementById("info").innerHTML = "Please enter a valid command";
                 }
             }       
             function moveToCol() {
-                document.getElementById("game").innerHTML = "Moving to Col"
+                document.getElementById("info").innerHTML = "Moving to Col"
             }
             function moveToTop() {
 
