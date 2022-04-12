@@ -50,20 +50,18 @@ p2{
 	display: block;
 	color: black;	
 	text-align: center;
-	font-size: 24px;
+	font-size: 28px;
 	font-weight: bold;
 }
 
-.mylinks a {
+.mylinkscontainer a {
 	text-align: center;
-	color: rgb(165, 16, 46);
+	color: red;
 	font-weight: bold;
-    display: inline-block;
-    font-size: 24px;
-	width: 33%;
-	
+	display: inline-block;
+	font-size: 24px;
+	width: 48%;
 }
-
 
 .selfImages p2{
 	width: 31%;
