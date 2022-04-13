@@ -13,7 +13,7 @@
                     Options: <br>
                     &emsp;q - Quit<br>
                     &emsp;mc - Move to col<br>
-                    &emsp;mt - Move to top<br>
+                    &emsp;mf - Move to foundation<br>
                     &emsp;d - Draw from pile<br>
                     &emsp;mdc - Move draw to col<br>
                     &emsp;mdt - Move draw to top<br>
@@ -33,6 +33,7 @@
                     <pre id="RowTen"     >                   </pre>
                     <pre id="RowEleven"  >                   </pre>
                     <pre id="RowTwelve"  >                   </pre>
+                    <pre id="RowThirteen">                   </pre>
 
                     <p id = "info"></p>
                     <input id="submit">
@@ -51,8 +52,8 @@
                     case "mc":
                         moveToCol();
                         break;
-                    case "mt":
-                        moveToTop();
+                    case "mf":
+                        moveToFoundation();
                         break;
                     case "d":
                         useDrawPile();
@@ -61,27 +62,39 @@
                         moveDrawToCol();
                         break;
                     case "mdt":
-                        moveDrawToTop()
+                        moveDrawToFoundation()
                         break;
                     default:
-                        //TODO: alter this so it still shows the game screen so the user knows theyre move
                         document.getElementById("info").innerHTML = "Please enter a valid command";
                 }
             }       
             function moveToCol() {
-                document.getElementById("info").innerHTML = "Moving to Col"
-            }
-            function moveToTop() {
+                document.getElementById("info").innerHTML = "Enter # of col you're moving from";
+                let fromCol = document.getElementById("submit").value;
 
+                document.getElementById("info").innerHTML = "Enter # of col you're moving To";
+                let toCol = document.getElementById("submit").value;
+
+                document.getElementById("info").innerHTML = "Enter # of cards you're moving";
+                let numCards = document.getElementById("submit").value;
+            }
+            function moveToFoundation() {
+                document.getElementById("info").innerHTML = "Enter # of col you're moving from";
+                let fromCol = document.getElementById("submit").value;
+
+                document.getElementById("info").innerHTML = "Enter # of foundation you're moving to";
+                let toFoundation = document.getElementById("submit").value;
             }
             function useDrawPile() {
 
             }
             function moveDrawToCol() {
-
+                document.getElementById("info").innerHTML = "Enter # of col you're moving to";
+                let toCol = document.getElementById("submit").value;
             }
-            function moveDrawToTop() {
-
+            function moveDrawToFoundation() {
+                document.getElementById("info").innerHTML = "Enter # of foundation you're moving to";
+                let toFoundation = document.getElementById("submit").value;
             }
             function playAgain() {
 
