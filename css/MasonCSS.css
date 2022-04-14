@@ -1,15 +1,18 @@
 body{
 	background-color: rgba(113, 161, 96, 0.815);
+	text-align: center;
+
+	overflow-x: hidden;
 }
 h1{
 	color: rgb(243, 232, 232);	
-	text-align: center;
-	font-size: 72px;
+
+	font-size: 68px;
 	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 h2{
 	color: rgb(243, 232, 232);	
-	text-align: center;
+
 	font-size: 60px;
 	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
@@ -42,20 +45,20 @@ li hr{
 p1{
 	display: block;
 	color: black;	
-	text-align: center;
+	
 	font-size: 32px;
 	font-weight: bold;
 }
 p2{
 	display: block;
 	color: black;	
-	text-align: center;
+	
 	font-size: 28px;
 	font-weight: bold;
 }
 
 .mylinkscontainer a {
-	text-align: center;
+	
 	color: red;
 	font-weight: bold;
 	display: inline-block;
@@ -65,8 +68,8 @@ p2{
 
 .selfImages p2{
 	width: 31%;
-	margin-right: auto;
-	margin-left: auto;
+	margin-right: .5%;
+	margin-left: .5%;
 	display: inline-block;
 
 }
@@ -82,14 +85,14 @@ p2{
 .aboutsite p1{
 	margin-left: 10%;
 	margin-right: 10%;
-	text-align: center;
+	
 	font-size: 24px;
 	color: black;
 }
 .siteGitHub a{
 	display: block;
 	font-weight: bold;
-	text-align: center;
+	
 	font-size: 24px;
 	color: rgb(165, 16, 46);
 
