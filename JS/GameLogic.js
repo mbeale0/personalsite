@@ -1,3 +1,4 @@
+import{changeCards} from './CardColumn.js';
 var drawPileLoc = -1;
 var hasWon = false;
 var initialDeck = [52];
@@ -31,13 +32,27 @@ function ManageDeal(index, column, card){
 function CreatedDrawPile(){
     var cardsAdded = 0;
     var remaingCards = initialDeck.length;
-    while(cardsAdded < initRemaingCards){
+    while (cardsAdded < remaingCards){
         var index = Math.floor(Math.random() * initialDeck.length);
         drawPile.push(initialDeck[index]);
         initialDeck.splice(index, 1);
         cardsAdded++;
     }
 }
+function moveCardFromColToCol(fromCol, toCol, numCards){
+    cardsToMove = new Card[numCards];
+    
+function getCards(cardColumn, numCards, cardsToMove) {
+    for (i = 0; i < numCards; i++) {
+        cardsToMove[i] = GetBottomCard();
+    }
+}
+/*private boolean checkAreDifferentSuits(CardColumn toCol, int toCardToCheck, Card card) {
+    if (card.getCardColor() != toCol.getCard(toCardToCheck).getCardColor()) {
+        return true;
+    }
+    return false;
+}*/
 
 class Suit{
 
@@ -61,4 +76,24 @@ class Stack {
     isempty = () => this.#items.length === 0
     empty = () => (this.#items.length = 0)
     size = () => this.#items.length
+}
+class Card{
+    
+    constructor(number, newcardSuit){
+        const cardNum = number;
+        const cardSuit = newcardSuit;
+        if(cardSuit == Suit.Spades || cardSuit == Suit.Clubs){
+            const color = "BLACK";
+        }
+        else{
+            const color = "RED";
+        }
+        this.movable = false;
+
+    }
+    set Movable(movable){
+        this.movable = movable;
+    }
+    
+}
 }
