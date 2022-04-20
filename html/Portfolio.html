@@ -2,6 +2,7 @@
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="../css/portfolioStyle.css" media="screen" />
+
         <title>Portfolio</title>
     </head>
     <body>
@@ -42,64 +43,72 @@
         <hr>
 
         
-        <script src = "../JS/GameDisplay.js"> </script>
-        <script>
-            let gameButton = document.getElementById("submit").value;
-            function takeTurn() {
-                let userinput = document.getElementById("submit").value;
-                document.getElementById("submit").value = "";
-                switch(userinput){
-                    case "mc":
-                        moveToCol();
-                        break;
-                    case "mf":
-                        moveToFoundation();
-                        break;
-                    case "d":
-                        useDrawPile();
-                        break;
-                    case "mdc":
-                        moveDrawToCol();
-                        break;
-                    case "mdt":
-                        moveDrawToFoundation()
-                        break;
-                    default:
-                        document.getElementById("info").innerHTML = "Please enter a valid command";
-                }
-            }       
-            function moveToCol() {
-                document.getElementById("info").innerHTML = "Enter # of col you're moving from";
-                let fromCol = document.getElementById("submit").value;
-
-                document.getElementById("info").innerHTML = "Enter # of col you're moving To";
-                let toCol = document.getElementById("submit").value;
-
-                document.getElementById("info").innerHTML = "Enter # of cards you're moving";
-                let numCards = document.getElementById("submit").value;
-            }
-            function moveToFoundation() {
-                document.getElementById("info").innerHTML = "Enter # of col you're moving from";
-                let fromCol = document.getElementById("submit").value;
-
-                document.getElementById("info").innerHTML = "Enter # of foundation you're moving to";
-                let toFoundation = document.getElementById("submit").value;
-            }
-            function useDrawPile() {
-
-            }
-            function moveDrawToCol() {
-                document.getElementById("info").innerHTML = "Enter # of col you're moving to";
-                let toCol = document.getElementById("submit").value;
-            }
-            function moveDrawToFoundation() {
-                document.getElementById("info").innerHTML = "Enter # of foundation you're moving to";
-                let toFoundation = document.getElementById("submit").value;
-            }
-            function playAgain() {
-                //TODO: Reset function
-            }
-        </script>
+        
+        
     </body>
+    <script type="text/javascript" src="../js/GameLogic.js"></script>
+    <script>
+        
+        CreateInitialDeck();
+        let gameButton = document.getElementById("submit").value;
+        function takeTurn() {
+            let userinput = document.getElementById("submit").value;
+            document.getElementById("submit").value = "";
+            switch (userinput) {
+                case "mc":
+                    moveToCol();
+                    break;
+                case "mf":
+                    moveToFoundation();
+                    break;
+                case "d":
+                    useDrawPile();
+                    break;
+                case "mdc":
+                    moveDrawToCol();
+                    break;
+                case "mdt":
+                    moveDrawToFoundation()
+                    break;
+                default:
+                    document.getElementById("info").innerHTML = "Please enter a valid command";
+            }
+        }
+        function moveToCol() {
+            document.getElementById("info").innerHTML = "Enter # of col you're moving from";
+            let fromCol = document.getElementById("submit").value;
 
+            document.getElementById("info").innerHTML = "Enter # of col you're moving To";
+            let toCol = document.getElementById("submit").value;
+
+            document.getElementById("info").innerHTML = "Enter # of cards you're moving";
+            let numCards = document.getElementById("submit").value;
+
+
+        }
+        function moveToFoundation() {
+            document.getElementById("info").innerHTML = "Enter # of col you're moving from";
+            let fromCol = document.getElementById("submit").value;
+
+            document.getElementById("info").innerHTML = "Enter # of foundation you're moving to";
+            let toFoundation = document.getElementById("submit").value;
+
+        }
+        function useDrawPile() {
+            LogicUseDrawPile();
+        }
+        function moveDrawToCol() {
+            document.getElementById("info").innerHTML = "Enter # of col you're moving to";
+            let toCol = document.getElementById("submit").value;
+
+        }
+        function moveDrawToFoundation() {
+            document.getElementById("info").innerHTML = "Enter # of foundation you're moving to";
+            let toFoundation = document.getElementById("submit").value;
+        }
+        function playAgain() {
+            //TODO: Reset function
+        }
+    </script>
+    
 </html>

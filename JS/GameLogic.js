@@ -1,4 +1,59 @@
-import { changeCards, getCard, getBottomCard, getColSize } from './CardColumn.js';
+//////////////////////////////////////////////////////////////////////////////////////
+
+class Suit {
+
+    static Spades = new Suit("Spade");
+    static Hearts = new Suit("Hearts");
+    static Clubs = new Suit("Clubs");
+    static Diamonds = new Suit("Diamonds");
+
+    constructor(name) {
+        name = name;
+    }
+    toString() {
+        return this.name;
+    }
+}
+class Stack {
+    #items = []
+    push = (element) => this.#items.push(element)
+    pop = () => this.#items.pop()
+    isempty = () => this.#items.length === 0
+    empty = () => (this.#items.length = 0)
+    size = () => this.#items.length
+}
+class Card {
+
+    constructor(number, newcardSuit) {
+        const cardNum = number;
+        const cardSuit = newcardSuit;
+        if (cardSuit == Suit.Spades || cardSuit == Suit.Clubs) {
+            const color = "BLACK";
+        }
+        else {
+            const color = "RED";
+        }
+        this.movable = false;
+
+    }
+    set Movable(movable) {
+        this.movable = movable;
+    }
+    set setIsFlipped(isFlipped) {
+        this.isFlipped = isFlipped;
+    }
+    get getIsFlipped() {
+        return this.isFlipped;
+    }
+    get getCardColor() {
+        return this.color;
+    }
+    get getCardNumber() {
+        return cardNum;
+    }
+}
+
+//import { changeCards, getCard, getBottomCard, getColSize } from './CardColumn.js';
 var drawPileLoc = -1;
 var hasWon = false;
 var initialDeck = [52];
@@ -7,14 +62,15 @@ var cardColumns = [7];
 var drawPile = new Stack();
 
 
-class GameLogic{
+/*class GameLogic{
     GameLogic(){
         CreateInitialDeck();        
     }
     
-}
+}*/
 
 function CreateInitialDeck() {
+    console.log("Creatting deck");
     for(var i = 1; i <= 13; i++){
         this.initialDeck.push(new Card(i, Suit.Clubs));
         this.initialDeck.push(new Card(i, Suit.Hearts));
@@ -29,7 +85,7 @@ function ManageDeal(index, column, card){
         initialDeck.splice(index, 1);
     }
 }
-function CreatedDrawPile(){
+function CreateDrawPile(){
     var cardsAdded = 0;
     var remaingCards = initialDeck.length;
     while (cardsAdded < remaingCards){
@@ -42,7 +98,7 @@ function CreatedDrawPile(){
 function moveCardFromColToCol(fromCol, toCol, numCards){
     cardsToMove = new Card[numCards];
     getCards(cardColumns[fromCol-1], numCards, cardsToMove);
-    addCard//not done apparently i just stopped?
+    addCards(cardColumns[toCol-1], numCards, cardsToMove);
     
 }
 function getCards(cardColumn, numCards, cardsToMove) {
@@ -50,7 +106,11 @@ function getCards(cardColumn, numCards, cardsToMove) {
         cardsToMove[i] = getBottomCard(cardColumn);
     }
 }
-
+function addCards(cardColumn, numCards, cardsToMove) {
+    for (i = numCards - 1; i >= 0; i--) {
+        cardColumn[cardsToMove[i]];
+    }
+}
 function moveCardFromDrawToCol(toCol){
 
     toCardToCheck = cardColumns[toCol - 1].length - 1;
@@ -69,12 +129,13 @@ function MoveCardToFoundation(fromCol, toFoundation){
     cardFoundations[toFoundation - 1] = cardToMove;
 }
 
-function useDrawPile(){
+function LogicUseDrawPile(){
     drawPileLoc += 3;
     if (drawPileLoc >= drawPile.size()) {
 
         this.posInDrawPile = -1;
     }
+    document.getElementById("RowOne").innerHTML = "0 0 0 0           5&#10084;";
 }
 
 function moveDrawCardToCol(cardColumn) {
@@ -251,59 +312,4 @@ function checkWin(){
     return maxColLength;
 }*/
 
-//////////////////////////////////////////////////////////////////////////////////////
-
-class Suit{
-
-    static Spades = new Suit("Spade");
-    static Hearts = new Suit("Hearts");
-    static Clubs = new Suit("Clubs");
-    static Diamonds = new Suit("Diamonds");
-
-    constructor(name){
-        name = name;
-    }
-    toString(){
-        return this.name;
-    }
-}
-
-class Stack {
-    #items = []
-    push = (element) => this.#items.push(element)
-    pop = () => this.#items.pop()
-    isempty = () => this.#items.length === 0
-    empty = () => (this.#items.length = 0)
-    size = () => this.#items.length
-}
-class Card{
-    
-    constructor(number, newcardSuit){
-        const cardNum = number;
-        const cardSuit = newcardSuit;
-        if(cardSuit == Suit.Spades || cardSuit == Suit.Clubs){
-            const color = "BLACK";
-        }
-        else{
-            const color = "RED";
-        }
-        this.movable = false;
-
-    }
-    set Movable(movable){
-        this.movable = movable;
-    }
-    set setIsFlipped(isFlipped){
-        this.isFlipped = isFlipped;
-    }
-    get getIsFlipped(){
-        return this.isFlipped;
-    }
-    get getCardColor(){
-        return this.color;
-    }
-    get getCardNumber(){
-        return cardNum;
-    }
-}
 
