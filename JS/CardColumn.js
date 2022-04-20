@@ -1,7 +1,7 @@
 class CardColumn{
 
 }
-cardColumn = [];
+
 function addToCardColumn(card) {
     cardColumn.add(card);
 }
@@ -12,7 +12,7 @@ function changeCards(cards, cardIndex, i) {
     cardIndex++;
 
 }
-function getBottomCard(){
+function getBottomCard(cardColumn){
     if (cardColumn.length == 0) {
         return null;
     }
@@ -23,7 +23,7 @@ function getBottomCard(){
     }
     return bottomCard;
 }
-    function getCard(index) {
+function getCard(index) {
     if (cardColumn.length != 0) {
         return cardColumn[index];
     }
@@ -31,7 +31,7 @@ function getBottomCard(){
         return null;
     }
 }
-    function getColSize(){
+function getColSize(){
     return cardColumn.length;
 }
-export{changeCards}
+export{changeCards, getCard, getBottomCard, getColSize}
