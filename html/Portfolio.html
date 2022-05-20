@@ -23,18 +23,18 @@
 
                 <span style="margin-right: 10px;">
                 <div id="Solitaire">
-                    <pre id="RowOne"     >0 0 0 0           |O|</pre>
-                    <pre id="RowTwo"     >X  X  X  X  X  X  X</pre>
-                    <pre id="RowThree"   >   X  X  X  X  X  X</pre>
-                    <pre id="RowFour"    >      X  X  X  X  X</pre>
-                    <pre id="RowFive"    >         X  X  X  X</pre>
-                    <pre id="RowSix"     >            X  X  X</pre>
-                    <pre id="RowSeven"   >               X  X</pre>
-                    <pre id="RowEight"   >                  X</pre>
-                    <pre id="RowTen"     >                   </pre>
-                    <pre id="RowEleven"  >                   </pre>
-                    <pre id="RowTwelve"  >                   </pre>
-                    <pre id="RowThirteen">                   </pre>
+                    <pre id="Row1"   >0 0 0 0           |O|</pre>
+                    <pre id="Row2"   >X  X  X  X  X  X  X</pre>
+                    <pre id="Row3"   >   X  X  X  X  X  X</pre>
+                    <pre id="Row4"   >      X  X  X  X  X</pre>
+                    <pre id="Row5"   >         X  X  X  X</pre>
+                    <pre id="Row6"   >            X  X  X</pre>
+                    <pre id="Row7"   >               X  X</pre>
+                    <pre id="Row8"   >                  X</pre>
+                    <pre id="Row10"  >                   </pre>
+                    <pre id="Row11"  >                   </pre>
+                    <pre id="Row12"  >                   </pre>
+                    <pre id="Row13"  >                   </pre>
 
                     <p id = "info"></p>
                     <input id="submit">
@@ -50,6 +50,7 @@
     <script>
         
         CreateInitialDeck();
+        CreateDrawPile();
         let gameButton = document.getElementById("submit").value;
         function takeTurn() {
             let userinput = document.getElementById("submit").value;
@@ -84,7 +85,7 @@
             document.getElementById("info").innerHTML = "Enter # of cards you're moving";
             let numCards = document.getElementById("submit").value;
 
-
+            
         }
         function moveToFoundation() {
             document.getElementById("info").innerHTML = "Enter # of col you're moving from";

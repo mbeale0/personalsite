@@ -8,7 +8,7 @@ class Suit {
     static Diamonds = new Suit("Diamonds");
 
     constructor(name) {
-        name = name;
+        this.name = name;
     }
     toString() {
         return this.name;
@@ -25,15 +25,15 @@ class Stack {
 class Card {
 
     constructor(number, newcardSuit) {
-        const cardNum = number;
-        const cardSuit = newcardSuit;
-        if (cardSuit == Suit.Spades || cardSuit == Suit.Clubs) {
-            const color = "BLACK";
+        this.cardNum = number;
+        this.cardSuit = newcardSuit;
+        if (this.cardSuit == Suit.Spades || this.cardSuit == Suit.Clubs) {
+            this.color = "BLACK";
         }
         else {
-            const color = "RED";
+            this.color = "RED";
         }
-        this.movable = false;
+        this.movable = true;// reset to false
 
     }
     set Movable(movable) {
@@ -42,6 +42,9 @@ class Card {
     set setIsFlipped(isFlipped) {
         this.isFlipped = isFlipped;
     }
+    get getCardSuit(){
+        return `${this.cardSuit}`;
+    }
     get getIsFlipped() {
         return this.isFlipped;
     }
@@ -49,7 +52,7 @@ class Card {
         return this.color;
     }
     get getCardNumber() {
-        return cardNum;
+        return this.cardNum;
     }
 }
 
@@ -61,21 +64,37 @@ var cardFoundations = [4];
 var cardColumns = [7];
 var drawPile = new Stack();
 
-
-/*class GameLogic{
-    GameLogic(){
-        CreateInitialDeck();        
+function PrintCard(cardToPrint, foundationCard, DrawCard){
+    
+    if(cardToPrint.getCardNumber == null && foundationCard){
+        return "0";
     }
     
-}*/
-
+    else if (DrawCard && posInDrawPile == 0) {
+        return "|0|";
+    }
+    else if (cardToPrint == null) {
+        return " ";
+    }
+    else if (cardToPrint != null && !cardToPrint.getIsFlipped) {
+        return "X";
+    }
+    return `${cardToPrint.getCardNumber}${cardToPrint.getCardSuit}`;
+}
 function CreateInitialDeck() {
-    console.log("Creatting deck");
+    console.log("Creating deck");
+    
     for(var i = 1; i <= 13; i++){
-        this.initialDeck.push(new Card(i, Suit.Clubs));
-        this.initialDeck.push(new Card(i, Suit.Hearts));
-        this.initialDeck.push(new Card(i, Suit.Diamonds));
-        this.initialDeck.push(new Card(i, Suit.Spades));
+        initialDeck.push(new Card(i, Suit.Hearts));
+        initialDeck.push(new Card(i, Suit.Clubs));
+        initialDeck.push(new Card(i, Suit.Diamonds));
+        initialDeck.push(new Card(i, Suit.Spades));        
+    }
+    //console.log("TEST: " + PrintCard(initialDeck[23]));
+    for (var i = 1; i < initialDeck.length; i++) {
+
+        console.log("Card: " + i + " " + PrintCard(initialDeck[i], false, false));
+
     }
 }
 function ManageDeal(index, column, card){
@@ -86,19 +105,32 @@ function ManageDeal(index, column, card){
     }
 }
 function CreateDrawPile(){
+    console.log("Creatting draw pile");
     var cardsAdded = 0;
-    var remaingCards = initialDeck.length;
-    while (cardsAdded < remaingCards){
+    var remainingCards = initialDeck.length;
+    console.log(`remaining: ` + initialDeck.length)
+    while (cardsAdded < remainingCards){
         var index = Math.floor(Math.random() * initialDeck.length);
         drawPile.push(initialDeck[index]);
         initialDeck.splice(index, 1);
         cardsAdded++;
     }
+
+}
+function printTopOfGameField() {
+    document.getElementById("Row1").innerHTML = document.getElementById("RowOne").innerHTML = `${PrintCard(cardFoundations[1])} ${PrintCard(cardFoundations[2])} ${PrintCard(cardFoundations[3])} ${PrintCard(cardFoundations[4])}           ${PrintCard(drawPile[this.posInDrawPile])}`;
+}
+function printBottomOfGameField() {
+    for(var i = 1; i < 8; i++){
+        var currentRow = `Row${i}`;
+        document.getElementById(currentRow);
+    }
+    
 }
 function moveCardFromColToCol(fromCol, toCol, numCards){
     cardsToMove = new Card[numCards];
-    getCards(cardColumns[fromCol-1], numCards, cardsToMove);
-    addCards(cardColumns[toCol-1], numCards, cardsToMove);
+    getCards(cardColumns[fromCol], numCards, cardsToMove);
+    addCards(cardColumns[toCol], numCards, cardsToMove);
     
 }
 function getCards(cardColumn, numCards, cardsToMove) {
@@ -114,7 +146,7 @@ function addCards(cardColumn, numCards, cardsToMove) {
 function moveCardFromDrawToCol(toCol){
 
     toCardToCheck = cardColumns[toCol - 1].length - 1;
-    if (this.cardColumns[toCol - 1].getColSize() == 0 && this.drawPile.get(this.posInDrawPile).getCardNumber() != 13) {
+    if (this.cardColumns[toCol -].getColSize() == 0 && this.drawPile.get(this.posInDrawPile).getCardNumber() != 13) {
         System.out.println("Invalid move");
         
     }
@@ -126,16 +158,16 @@ function moveCardFromDrawToCol(toCol){
 
 function MoveCardToFoundation(fromCol, toFoundation){
     cardToMove = getBottomCard(cardColumns[fromCol - 1]);
-    cardFoundations[toFoundation - 1] = cardToMove;
+    cardFoundations[toFoundation] = cardToMove;
 }
 
 function LogicUseDrawPile(){
     drawPileLoc += 3;
     if (drawPileLoc >= drawPile.size()) {
 
-        this.posInDrawPile = -1;
+        this.posInDrawPile = 0;
     }
-    document.getElementById("RowOne").innerHTML = "0 0 0 0           5&#10084;";
+    document.getElementById("RowOne").innerHTML = `${PrintCard(cardFoundations[1])} ${PrintCard(cardFoundations[2])} ${PrintCard(cardFoundations[3])} ${PrintCard(cardFoundations[4])}           ${PrintCard(drawPile[this.posInDrawPile])}`;
 }
 
 function moveDrawCardToCol(cardColumn) {
@@ -144,7 +176,7 @@ function moveDrawCardToCol(cardColumn) {
     cardColumn[cardColumn.length] = cardToMove;
     drawPile[drawPileLoc] = null;
     tempPile = Stack[drawPile.size()-1];
-    for(i = 0; i < drawPile.size()-2; i++){
+    for(i = 1; i < drawPile.size()-2; i++){
         if(drawPile[i] != null){
             tempPile[i] = drawPile[i];
         }
@@ -300,16 +332,6 @@ function checkWin(){
     }
 }
 
-//might not need depending on way display works
-/*public int getMaxColLength(){
-        int maxColLength = 0;
 
-    for (int i = 0; i < this.cardColumns.length - 1; i++) {
-        if (this.cardColumns[i].getColSize() < this.cardColumns[i + 1].getColSize()) {
-            maxColLength = this.cardColumns[i + 1].getColSize();
-        }
-    }
-    return maxColLength;
-}*/
 
 
