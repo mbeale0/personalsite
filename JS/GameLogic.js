@@ -123,14 +123,14 @@ function printTopOfGameField() {
 function printBottomOfGameField() {
     for(var i = 1; i < 8; i++){
         var currentRow = `Row${i}`;
-        document.getElementById(currentRow);
+        document.getElementById(currentRow) = `${cardColumns[i].ca}`;
     }
     
 }
 function moveCardFromColToCol(fromCol, toCol, numCards){
     cardsToMove = new Card[numCards];
-    getCards(cardColumns[fromCol], numCards, cardsToMove);
-    addCards(cardColumns[toCol], numCards, cardsToMove);
+    getCards(cardColumns[fromCol-1], numCards, cardsToMove);
+    addCards(cardColumns[toCol-1], numCards, cardsToMove);
     
 }
 function getCards(cardColumn, numCards, cardsToMove) {
@@ -146,7 +146,7 @@ function addCards(cardColumn, numCards, cardsToMove) {
 function moveCardFromDrawToCol(toCol){
 
     toCardToCheck = cardColumns[toCol - 1].length - 1;
-    if (this.cardColumns[toCol -].getColSize() == 0 && this.drawPile.get(this.posInDrawPile).getCardNumber() != 13) {
+    if (this.cardColumns[toCol - 1].getColSize() == 0 && this.drawPile.get(this.posInDrawPile).getCardNumber() != 13) {
         System.out.println("Invalid move");
         
     }
@@ -158,7 +158,7 @@ function moveCardFromDrawToCol(toCol){
 
 function MoveCardToFoundation(fromCol, toFoundation){
     cardToMove = getBottomCard(cardColumns[fromCol - 1]);
-    cardFoundations[toFoundation] = cardToMove;
+    cardFoundations[toFoundation - 1] = cardToMove;
 }
 
 function LogicUseDrawPile(){
@@ -176,7 +176,7 @@ function moveDrawCardToCol(cardColumn) {
     cardColumn[cardColumn.length] = cardToMove;
     drawPile[drawPileLoc] = null;
     tempPile = Stack[drawPile.size()-1];
-    for(i = 1; i < drawPile.size()-2; i++){
+    for(i = 0; i < drawPile.size()-2; i++){
         if(drawPile[i] != null){
             tempPile[i] = drawPile[i];
         }
