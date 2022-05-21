@@ -65,18 +65,23 @@ var cardColumns = [7];
 var drawPile = new Stack();
 
 function PrintCard(cardToPrint, foundationCard, DrawCard){
-    
-    if(cardToPrint.getCardNumber == null && foundationCard){
+    console.log("DP: " + drawPile.length);
+    if(cardToPrint == null){
+        console.log("Null");
+    }
+    if(cardToPrint == null && foundationCard){
         return "0";
     }
     
-    else if (DrawCard && posInDrawPile == 0) {
+    else if (DrawCard && drawPileLoc == -1) {
         return "|0|";
     }
     else if (cardToPrint == null) {
+        console.log("Space");
         return " ";
     }
-    else if (cardToPrint != null && !cardToPrint.getIsFlipped) {
+    else if (cardToPrint != null && !DrawCard && !cardToPrint.getIsFlipped && !foundationCard) {
+        console.log("X");
         return "X";
     }
     return `${cardToPrint.getCardNumber}${cardToPrint.getCardSuit}`;
@@ -90,12 +95,7 @@ function CreateInitialDeck() {
         initialDeck.push(new Card(i, Suit.Diamonds));
         initialDeck.push(new Card(i, Suit.Spades));        
     }
-    //console.log("TEST: " + PrintCard(initialDeck[23]));
-    for (var i = 1; i < initialDeck.length; i++) {
-
-        console.log("Card: " + i + " " + PrintCard(initialDeck[i], false, false));
-
-    }
+    
 }
 function ManageDeal(index, column, card){
     column.push(card);
@@ -106,19 +106,23 @@ function ManageDeal(index, column, card){
 }
 function CreateDrawPile(){
     console.log("Creatting draw pile");
+    
     var cardsAdded = 0;
     var remainingCards = initialDeck.length;
-    console.log(`remaining: ` + initialDeck.length)
+    drawPile.length = remainingCards;
+    
     while (cardsAdded < remainingCards){
+        console.log(`remaining: ` + initialDeck.length)
         var index = Math.floor(Math.random() * initialDeck.length);
         drawPile.push(initialDeck[index]);
         initialDeck.splice(index, 1);
         cardsAdded++;
     }
+    
 
 }
 function printTopOfGameField() {
-    document.getElementById("Row1").innerHTML = document.getElementById("RowOne").innerHTML = `${PrintCard(cardFoundations[1])} ${PrintCard(cardFoundations[2])} ${PrintCard(cardFoundations[3])} ${PrintCard(cardFoundations[4])}           ${PrintCard(drawPile[this.posInDrawPile])}`;
+    document.getElementById("Row1").innerHTML = document.getElementById("RowOne").innerHTML = `${PrintCard(cardFoundations[1], true, false)} ${PrintCard(cardFoundations[2], true, false)} ${PrintCard(cardFoundations[3], true, false)} ${PrintCard(cardFoundations[4], true, true)}           ${PrintCard(drawPile[this.posInDrawPile], false, false)}`;
 }
 function printBottomOfGameField() {
     for(var i = 1; i < 8; i++){
@@ -167,7 +171,14 @@ function LogicUseDrawPile(){
 
         this.posInDrawPile = 0;
     }
-    document.getElementById("RowOne").innerHTML = `${PrintCard(cardFoundations[1])} ${PrintCard(cardFoundations[2])} ${PrintCard(cardFoundations[3])} ${PrintCard(cardFoundations[4])}           ${PrintCard(drawPile[this.posInDrawPile])}`;
+    //cardFoundations[1] = new Card(3, Suit.Hearts);
+    var foundOne = PrintCard(cardFoundations[1], true, false);
+    var foundTwo = PrintCard(cardFoundations[2], true, false);
+    var foundThree = PrintCard(cardFoundations[3], true, false);
+    var foundFour = PrintCard(cardFoundations[4], true, false);
+    console.log("Getting Draw");
+    //var draw = PrintCard(drawPile[this.drawPileLoc], false, true);
+    document.getElementById("Row1").innerHTML = `${foundOne} ${foundTwo} ${foundThree} ${foundFour}           ${PrintCard(drawPile.pop, false, true)}`;
 }
 
 function moveDrawCardToCol(cardColumn) {
