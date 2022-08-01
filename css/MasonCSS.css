@@ -63,10 +63,10 @@ p2{
 	font-weight: bold;
 	display: inline-block;
 	font-size: 24px;
-	width: 48%;
+	width: 24%;
 }
 
-.selfImages p2{
+.Self p2{
 	width: 31%;
 	margin-right: .5%;
 	margin-left: .5%;
@@ -89,12 +89,12 @@ p2{
 	font-size: 24px;
 	color: black;
 }
-.siteGitHub a{
-	display: block;
-	font-weight: bold;
-	
-	font-size: 24px;
-	color: rgb(165, 16, 46);
 
+.About-Me p2 {
+	width: 31%;
+	margin-right: .5%;
+	margin-left: .5%;
+	display: inline-block;
 }
+
 
