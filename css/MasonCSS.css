@@ -2,12 +2,13 @@ body{
 	background-color: rgba(0, 26, 35, 0.815);
 	text-align: center;
 	overflow-x: hidden;
+	margin: 0 auto;
 }
 h1{
 	color: rgb(243, 232, 232);	
 	font-size: 50px;
 	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-	margin: 10px;
+	margin: 8px;
 }
 h2{
 	color: rgb(243, 232, 232);	
@@ -41,31 +42,29 @@ li hr{
 	border-left: rgb(224, 83, 29);
 	border-right: rgb(224, 83, 29);
 }
-p1{
+
+p{
 	display: block;
 	color: white;	
-	
-	font-size: 20px;
-	font-weight: bold;
-}
-p2{
-	display: block;
-	color: black;	
-	
-	font-size: 28px;
+	font-size: 30px;
 	font-weight: bold;
 }
 
-header div {
+img {
+	margin-left: 5%;
+	margin-right: 5%;
+	margin-bottom: 1%;
+	margin-top: 1%;
+}
+
+header {
 	width: 100%;
-	min-height: 5%;
+	min-height: 4%;
 	padding-top: 5px;
 	padding-bottom: 5px;
 	background-color: rgb(112, 141, 129);
-	margin-bottom: 2%;
+	margin: 0 auto;
 }
-
-
 
 footer div {	
 	width: 100%;
@@ -87,19 +86,15 @@ footer a {
 	text-align: center;
 }
 
-.Self p2{
-	width: 31%;
-	margin-right: .5%;
-	margin-left: .5%;
-	display: inline-block;
-
-}
-
 .About-Me p2 {
 	width: 31%;
 	margin-right: .5%;
 	margin-left: .5%;
 	display: inline-block;
+}
+
+.About-Me, .Projects, .Resume {
+	margin: 2%;
 }
 
 
