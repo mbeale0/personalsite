@@ -1,5 +1,5 @@
 body{
-	background-color: rgba(113, 161, 96, 0.815);
+	background-color: rgba(0, 26, 35, 0.815);
 	text-align: center;
 
 	overflow-x: hidden;
@@ -7,13 +7,13 @@ body{
 h1{
 	color: rgb(243, 232, 232);	
 
-	font-size: 68px;
+	font-size: 50px;
 	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 h2{
 	color: rgb(243, 232, 232);	
 
-	font-size: 60px;
+	font-size: 40px;
 	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 ul{
@@ -44,9 +44,9 @@ li hr{
 }
 p1{
 	display: block;
-	color: black;	
+	color: white;	
 	
-	font-size: 32px;
+	font-size: 20px;
 	font-weight: bold;
 }
 p2{
