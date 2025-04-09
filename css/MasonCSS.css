@@ -1,20 +1,19 @@
 body{
 	background-color: rgba(0, 26, 35, 0.815);
 	text-align: center;
-
 	overflow-x: hidden;
 }
 h1{
 	color: rgb(243, 232, 232);	
-
 	font-size: 50px;
 	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+	margin: 10px;
 }
 h2{
 	color: rgb(243, 232, 232);	
-
-	font-size: 40px;
+	font-size: 30px;
 	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+	margin: 5px;
 }
 ul{
 	list-style-type: none;
@@ -57,13 +56,35 @@ p2{
 	font-weight: bold;
 }
 
-.mylinkscontainer a {
-	
-	color: red;
+header div {
+	width: 100%;
+	min-height: 5%;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	background-color: rgb(112, 141, 129);
+	margin-bottom: 2%;
+}
+
+
+
+footer div {	
+	width: 100%;
+	min-height: 5%;
+	display: flex;
+	position: absolute;
+	margin: 30px 0 0 -10px;
+	padding: 10px;	
+	background-color: rgb(112, 141, 129);
+}
+
+footer a {
+	color: white;
 	font-weight: bold;
 	display: inline-block;
-	font-size: 24px;
-	width: 24%;
+	font-size: 30px;
+	width: 33%;
+	align-content: center;
+	text-align: center;
 }
 
 .Self p2{
@@ -72,22 +93,6 @@ p2{
 	margin-left: .5%;
 	display: inline-block;
 
-}
-
-.aboutsite h1{
-	color: rgp(243, 232, 232);
-	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-	font-size: 48px;
-	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-	text-align: center;
-}
-
-.aboutsite p1{
-	margin-left: 10%;
-	margin-right: 10%;
-	
-	font-size: 24px;
-	color: black;
 }
 
 .About-Me p2 {
